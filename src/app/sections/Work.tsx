@@ -48,17 +48,25 @@ const projects = [
   },
 ];
 
-// Split into two rows that scroll opposite directions. Uses a midpoint so it
-// still divides sensibly if projects are added or removed later.
-const midpoint = Math.ceil(projects.length / 2);
-const rowOne = projects.slice(0, midpoint);
-const rowTwo = projects.slice(midpoint);
-
-// How many times each row's cards repeat back-to-back. More copies = more
+// How many times the row's cards repeat back-to-back. More copies = more
 // buffer, so the strip never runs dry on very wide monitors before it loops.
 const REPEAT = 4;
 
-function ProjectCard({ project, hidden = false }) {
+interface Project {
+  title: string;
+  category: string;
+  description: string;
+  image: string;
+  href: string;
+}
+
+function ProjectCard({
+  project,
+  hidden = false,
+}: {
+  project: Project;
+  hidden?: boolean;
+}) {
   return (
     <a
       href={project.href}
@@ -102,7 +110,15 @@ function ProjectCard({ project, hidden = false }) {
   );
 }
 
-function MarqueeRow({ items, direction, duration }) {
+function MarqueeRow({
+  items,
+  direction,
+  duration,
+}: {
+  items: Project[];
+  direction: "left" | "right";
+  duration: number;
+}) {
   const track = Array.from({ length: REPEAT }, () => items).flat();
 
   return (
@@ -173,8 +189,7 @@ export default function Work() {
         transition={{ duration: 0.8, delay: 0.1 }}
         className="relative z-10 flex flex-col gap-5 md:gap-6"
       >
-        <MarqueeRow items={rowOne} direction="left" duration={32} />
-        {/* <MarqueeRow items={rowTwo} direction="right" duration={38} /> */}
+        <MarqueeRow items={projects} direction="left" duration={60} />
       </motion.div>
 
       <style jsx global>{`

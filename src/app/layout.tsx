@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Syne, Inter, Instrument_Sans } from "next/font/google";
+import { Inter, Instrument_Sans, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
-const syne = Syne({
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
-  variable: "--font-syne",
-  weight: ["600", "700", "800"],
+  variable: "--font-instrument-serif",
+  weight: ["400"],
+  style: ["normal", "italic"],
 });
 
 const instrumentSans = Instrument_Sans({
@@ -45,9 +46,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <body
-        className={`${syne.variable} ${instrumentSans.variable} ${inter.variable} antialiased bg-background text-foreground`}
+        className={`${instrumentSerif.variable} ${instrumentSans.variable} ${inter.variable} antialiased bg-background text-foreground`}
       >
         {children}
       </body>

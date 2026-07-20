@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero";
 import TrustedBy from "./sections/TrustedBy";
+import About from "./sections/About";
 import Services from "./sections/Services";
 import Process from "./sections/Process";
 import Work from "./sections/Work";
@@ -14,8 +15,9 @@ export default function Home() {
       <Navbar />
       <Hero />
       <TrustedBy />
-      <Services />
+      <About />
       <Work />
+      <Services />
       <Process />
       <Testimonials />
       <CTA />

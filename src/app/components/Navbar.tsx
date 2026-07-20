@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import Logo from "./Logo";
 
 const navLinks = [
@@ -30,12 +30,14 @@ export default function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "glass-strong py-3" : "bg-transparent py-5"
+          scrolled
+            ? "glass-strong shadow-[0_10px_40px_-20px_rgba(30,45,160,0.25)] py-3"
+            : "bg-transparent py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <a href="#" className="hover:opacity-80 transition-opacity">
-            <Logo variant="wordmark" className="h-10 w-auto" />
+            <Logo variant="wordmark" theme="light" className="h-10 w-auto" />
           </a>
 
           <div className="hidden md:flex items-center gap-8">
@@ -53,9 +55,12 @@ export default function Navbar() {
           <div className="hidden md:block">
             <a
               href="#contact"
-              className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-2.5 font-display font-semibold text-sm bg-white text-black hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5"
+              className="group inline-flex items-center justify-center gap-2 rounded-full pl-6 pr-2 py-2 font-display font-semibold text-sm bg-accent text-white hover:bg-accent-deep transition-all duration-300 hover:-translate-y-0.5 glow-accent"
             >
               Let&apos;s Talk
+              <span className="w-8 h-8 rounded-full bg-white text-accent flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
+                <ArrowRight size={15} />
+              </span>
             </a>
           </div>
 
@@ -91,7 +96,7 @@ export default function Navbar() {
               <a
                 href="#contact"
                 onClick={() => setMobileOpen(false)}
-                className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-display font-semibold text-sm bg-white text-black"
+                className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-display font-semibold text-sm bg-accent text-white"
               >
                 Let&apos;s Talk
               </a>

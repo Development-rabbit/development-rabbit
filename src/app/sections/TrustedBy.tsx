@@ -14,7 +14,7 @@ const brands = [
 
 export default function TrustedBy() {
   return (
-    <section className="relative py-12 border-y border-white/10 bg-background/50 backdrop-blur-sm">
+    <section className="relative py-12">
       <div className="max-w-7xl mx-auto px-6">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -36,7 +36,7 @@ export default function TrustedBy() {
           {brands.map((brand) => (
             <span
               key={brand}
-              className="text-lg md:text-xl font-display font-bold text-white/40 hover:text-white/70 transition-colors tracking-wider"
+              className="text-lg md:text-xl font-display font-bold text-foreground/30 hover:text-foreground/60 transition-colors tracking-wider"
             >
               {brand}
             </span>

@@ -10,7 +10,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/10 pt-16 pb-8">
+    <footer className="relative border-t border-line pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           <div className="lg:col-span-2">
@@ -21,7 +21,7 @@ export default function Footer() {
             </p>
             <a
               href="mailto:hello@8xwork.com"
-              className="text-foreground hover:text-accent-purple transition-colors font-medium"
+              className="text-foreground hover:text-accent transition-colors font-medium"
             >
               hello@8xwork.com
             </a>
@@ -52,7 +52,7 @@ export default function Footer() {
                 <a
                   key={social}
                   href="#"
-                  className="w-10 h-10 rounded-full glass flex items-center justify-center text-sm font-semibold text-muted hover:text-foreground hover:bg-white/10 transition-colors"
+                  className="w-10 h-10 rounded-full bg-white border border-line flex items-center justify-center text-sm font-semibold text-muted hover:bg-accent hover:text-white hover:border-accent transition-colors"
                 >
                   {social}
                 </a>
@@ -61,7 +61,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-white/10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-line">
           <p className="text-sm text-muted">
             © {new Date().getFullYear()} 8xWork. All rights reserved.
           </p>

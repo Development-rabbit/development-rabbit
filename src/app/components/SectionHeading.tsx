@@ -28,7 +28,7 @@ export default function SectionHeading({
       className={`max-w-3xl ${alignClass} mb-16`}
     >
       {eyebrow && (
-        <span className="inline-block mb-4 text-xs font-semibold tracking-[0.2em] uppercase text-accent-purple">
+        <span className="inline-block mb-4 text-xs font-semibold tracking-[0.2em] uppercase text-accent">
           {eyebrow}
         </span>
       )}

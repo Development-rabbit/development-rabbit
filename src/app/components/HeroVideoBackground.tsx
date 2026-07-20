@@ -23,8 +23,8 @@ export default function HeroVideoBackground() {
   }, [active]);
 
   return (
-    <div className="absolute inset-0 overflow-hidden bg-background">
-      {/* Full-screen videos — play one at a time, crossfade, loop forever */}
+    <div className="absolute inset-0 overflow-hidden bg-accent-panel">
+      {/* Videos — play one at a time, crossfade, loop forever */}
       {VIDEOS.map((src, i) => (
         <video
           key={src}
@@ -37,23 +37,19 @@ export default function HeroVideoBackground() {
           preload="auto"
           onEnded={() => setActive((i + 1) % VIDEOS.length)}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1400ms] ease-in-out ${
-            i === active ? "opacity-45" : "opacity-0"
+            i === active ? "opacity-30" : "opacity-0"
           }`}
         >
           <source src={src} type="video/mp4" />
         </video>
       ))}
 
-      {/* Dark overlay for legibility */}
-      <div className="absolute inset-0 bg-background/70" />
+      {/* Blue tint — light periwinkle at the top, deep royal blue at the bottom */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#8a97ff]/60 via-[#3f50e6]/75 to-[#1a23a6]/90" />
 
-      {/* Gradient overlays for depth */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
-
-      {/* Accent glows */}
-      <div className="absolute top-1/4 right-1/4 w-[320px] md:w-[500px] h-[320px] md:h-[500px] bg-accent-purple/20 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/3 w-[260px] md:w-[400px] h-[260px] md:h-[400px] bg-accent-blue/15 rounded-full blur-[130px] pointer-events-none" />
+      {/* Soft highlight for depth */}
+      <div className="absolute inset-0 bg-[radial-gradient(70%_60%_at_25%_0%,rgba(255,255,255,0.22),transparent)]" />
+      <div className="absolute bottom-0 right-0 w-[420px] md:w-[640px] h-[420px] md:h-[640px] bg-white/10 rounded-full blur-[160px] pointer-events-none" />
     </div>
   );
 }

@@ -35,7 +35,7 @@ export default function Testimonials() {
 
   return (
     <section id="insights" className="relative py-28 md:py-36 overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-accent-purple/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-accent/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6">
         <SectionHeading
@@ -45,10 +45,10 @@ export default function Testimonials() {
           description="Do not just take our word for it — hear from the founders and leaders we&apos;ve partnered with."
         />
 
-        <div className="relative glass rounded-3xl p-8 md:p-14">
+        <div className="relative bg-white border border-line card-shadow rounded-3xl p-8 md:p-14">
           <Quote
             size={48}
-            className="absolute top-8 right-8 text-white/10"
+            className="absolute top-8 right-8 text-accent/15"
           />
 
           <AnimatePresence mode="wait">
@@ -77,14 +77,14 @@ export default function Testimonials() {
           <div className="flex items-center gap-4 mt-8">
             <button
               onClick={prev}
-              className="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors"
+              className="w-12 h-12 rounded-full bg-surface-light border border-line flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-colors"
               aria-label="Previous testimonial"
             >
               <ChevronLeft size={24} />
             </button>
             <button
               onClick={next}
-              className="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors"
+              className="w-12 h-12 rounded-full bg-surface-light border border-line flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-colors"
               aria-label="Next testimonial"
             >
               <ChevronRight size={24} />
@@ -96,8 +96,8 @@ export default function Testimonials() {
                   onClick={() => setCurrent(index)}
                   className={`w-2 h-2 rounded-full transition-all ${
                     index === current
-                      ? "bg-accent-purple w-6"
-                      : "bg-white/20 hover:bg-white/40"
+                      ? "bg-accent w-6"
+                      : "bg-foreground/15 hover:bg-foreground/30"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />

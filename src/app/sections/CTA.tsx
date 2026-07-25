@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import CalendlyWidget from "../components/CalendlyWidget";
 
 export default function CTA() {
   return (
@@ -45,6 +46,10 @@ export default function CTA() {
               <ArrowRight size={15} />
             </span>
           </a>
+
+          <div className="mt-12 rounded-3xl bg-white p-2 sm:p-3 text-left overflow-hidden shadow-[0_30px_80px_-30px_rgba(10,16,80,0.6)]">
+            <CalendlyWidget />
+          </div>
         </div>
       </motion.div>
     </section>

@@ -8,6 +8,24 @@ const footerLinks = {
   Resources: ["Blog", "Case Studies", "FAQ", "Docs"],
 };
 
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    label: "In",
+    url: "https://www.linkedin.com/company/8xwork/",
+  },
+  {
+    name: "X",
+    label: "X",
+    url: "https://x.com/8xwork",
+  },
+  {
+    name: "Instagram",
+    label: "Ig",
+    url: "https://www.instagram.com/8xwork/",
+  },
+];
+
 export default function Footer() {
   return (
     <footer className="relative border-t border-line pt-16 pb-8">
@@ -23,7 +41,7 @@ export default function Footer() {
               href="mailto:hello@8xwork.com"
               className="text-foreground hover:text-accent transition-colors font-medium"
             >
-              hello@8xwork.com
+              connect@8xwork.com
             </a>
           </div>
 
@@ -46,21 +64,21 @@ export default function Footer() {
           ))}
 
           <div>
-            <h4 className="font-display font-bold mb-5">Let&apos;s Connect</h4>
-            <div className="flex gap-4">
-              {["In", "X", "Ig"].map((social) => (
-                <a
-                  key={social}
-                  href="#"
-                  className="w-10 h-10 rounded-full bg-white border border-line flex items-center justify-center text-sm font-semibold text-muted hover:bg-accent hover:text-white hover:border-accent transition-colors"
-                >
-                  {social}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-
+  <h4 className="font-display font-bold mb-5">Let&apos;s Connect</h4>
+  <div className="flex gap-4">
+    {socialLinks.map((social) => (
+      <a
+        key={social.name}
+        href={social.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-10 h-10 rounded-full bg-white border border-line flex items-center justify-center text-sm font-semibold text-muted hover:bg-accent hover:text-white hover:border-accent transition-colors"
+      >
+        {social.label}
+      </a>
+    ))}
+  </div>
+</div></div>
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-line">
           <p className="text-sm text-muted">
             © {new Date().getFullYear()} 8xWork. All rights reserved.

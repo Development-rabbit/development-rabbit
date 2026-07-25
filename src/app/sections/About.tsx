@@ -60,7 +60,7 @@ export default function About() {
               preload="metadata"
               className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-700 ease-out"
             >
-              <source src="/vid1.mp4" type="video/mp4" />
+              <source src="/nursing.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-[#0e1233]/85 via-[#0e1233]/10 to-transparent" />
             <p className="absolute bottom-6 left-6 right-6 text-white font-display font-semibold text-lg leading-snug">
@@ -105,10 +105,10 @@ export default function About() {
           >
             <div>
               <span className="block font-display text-6xl md:text-7xl font-bold text-accent tracking-tight mb-3">
-                6+
+                100+
               </span>
               <p className="text-muted leading-relaxed">
-                Immersive products shipped across AR, VR, and the web — for
+                Products shipped across AR, VR, Agents, Hardware and the web — for
                 industry, healthcare, defence, and education.
               </p>
             </div>
@@ -117,7 +117,7 @@ export default function About() {
                 Growth Delivered
               </span>
               <span className="text-sm text-muted">
-                Trusted by 7+ innovative brands
+                Trusted by 23+ innovative brands
               </span>
             </div>
           </motion.div>

@@ -96,7 +96,7 @@ export default function Hero() {
               <div className="flex items-center gap-6 pt-4 border-t border-white/15">
                 <div>
                   <span className="block font-display text-2xl font-bold text-white">
-                    6+
+                    100+
                   </span>
                   <span className="text-[11px] font-medium uppercase tracking-wider text-white/60">
                     Products shipped
@@ -105,7 +105,7 @@ export default function Hero() {
                 <div className="w-px h-9 bg-white/15" />
                 <div>
                   <span className="block font-display text-2xl font-bold text-white">
-                    7+
+                    23+
                   </span>
                   <span className="text-[11px] font-medium uppercase tracking-wider text-white/60">
                     Brands trust us

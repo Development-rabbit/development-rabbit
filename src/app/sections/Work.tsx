@@ -2,63 +2,12 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-
-const projects = [
-  {
-    title: "IndustryVR",
-    category: "Industrial Training",
-    description: "VR simulations for manufacturing, logistics, and workplace safety.",
-    image: "/industryvr.png",
-    href: "https://industryvr.in/",
-  },
-  {
-    title: "NursingVR",
-    category: "Healthcare Education",
-    description: "Immersive training for nursing professionals and clinical staff.",
-    image: "/nursingvr.png",
-    href: "https://nursingvr.in/",
-  },
-  {
-    title: "DefenceVR",
-    category: "Defence Simulation",
-    description: "High-fidelity virtual training for defence and tactical readiness.",
-    image: "/defencevr.png",
-    href: "https://defencevr.in/",
-  },
-  {
-    title: "SchoolVR",
-    category: "Immersive Education",
-    description: "Virtual classrooms and interactive learning experiences for students.",
-    image: "/schoolvr.png",
-    href: "https://schoolvr.us/",
-  },
-  {
-    title: "Aonix",
-    category: "Digital Platform",
-    description: "A modern web platform designed for a forward-thinking tech brand.",
-    image: "/aonix.png",
-    href: "https://aonix.in/",
-  },
-  {
-    title: "AegixCore",
-    category: "Core Technology",
-    description: "The foundational platform powering next-generation immersive solutions.",
-    image: "/aegixcore.png",
-    href: "https://www.aegixcore.com/",
-  },
-];
+import Link from "next/link";
+import { projects, type Project } from "../data/projects";
 
 // How many times the row's cards repeat back-to-back. More copies = more
 // buffer, so the strip never runs dry on very wide monitors before it loops.
 const REPEAT = 4;
-
-interface Project {
-  title: string;
-  category: string;
-  description: string;
-  image: string;
-  href: string;
-}
 
 function ProjectCard({
   project,
@@ -168,17 +117,21 @@ export default function Work() {
             </h2>
           </motion.div>
 
-          <motion.a
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            href="#work"
-            className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold bg-white border border-line hover:border-accent/40 hover:text-accent transition-colors whitespace-nowrap self-start md:self-auto"
+            className="self-start md:self-auto"
           >
-            View All Projects
-            <ArrowRight size={16} />
-          </motion.a>
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold bg-white border border-line hover:border-accent/40 hover:text-accent transition-colors whitespace-nowrap"
+            >
+              View All Projects
+              <ArrowRight size={16} />
+            </Link>
+          </motion.div>
         </div>
       </div>
 

@@ -1,0 +1,24 @@
+{
+  "name": "Development Rabbit — Master AI Video Generation",
+  "short_name": "Development Rabbit",
+  "description": "Hands-on courses that teach you to prompt, direct, and edit AI-generated video with Runway, Sora, Pika, and Kling.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#7B3FF2",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "1112x1415",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "1112x1415",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+# Claude Code local settings/session data — not project source.
+.claude/
+
+# Stray local archive/backup — not meant to be versioned.
+frontend.rar
+
+# Environment files (each app also has its own .gitignore covering
+# this, but keeping it here too in case a root-level .env ever appears).
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+build/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor/OS cruft
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.swp

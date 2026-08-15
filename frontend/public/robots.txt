@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /my-courses
+Disallow: /content/
+Disallow: /login
+Disallow: /signup
+Disallow: /auth/
+
+Sitemap: https://developmentrabbit.in/sitemap.xml

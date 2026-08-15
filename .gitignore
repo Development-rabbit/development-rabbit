@@ -4,6 +4,8 @@
 # Stray local archive/backup — not meant to be versioned.
 frontend.rar
 
+# Design reference images — not app source.
+claude refrences/
 # Environment files (each app also has its own .gitignore covering
 # this, but keeping it here too in case a root-level .env ever appears).
 .env

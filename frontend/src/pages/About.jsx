@@ -107,14 +107,14 @@ const About = () => (
         <div className="flex flex-wrap items-center justify-center gap-3">
           <span className="inline-flex items-center gap-2 bg-white border border-ink/10 rounded-full px-4 py-2 font-body text-sm text-ink">
             <MapPinIcon className="w-4 h-4 text-primary" />
-            Bengaluru, Karnataka, India
+            Giridih, Jharkhand, India
           </span>
           <a
-            href="mailto:support@developmentrabbit.in"
+            href="mailto:support@developmentrabbit.com"
             className="inline-flex items-center gap-2 bg-white border border-ink/10 rounded-full px-4 py-2 font-body text-sm text-ink hover:border-primary/40 transition-colors"
           >
             <MailIcon className="w-4 h-4 text-primary" />
-            support@developmentrabbit.in
+            support@developmentrabbit.com
           </a>
         </div>
       </div>

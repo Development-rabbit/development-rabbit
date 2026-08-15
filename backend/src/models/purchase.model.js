@@ -43,10 +43,11 @@ const purchaseSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-purchaseSchema.index(
-  { razorpayOrderId: 1 },
-  { unique: true, partialFilterExpression: { razorpayOrderId: { $exists: true, $type: "string" } } }
-);
+// Not unique — a single cart checkout creates one Razorpay order shared
+// across multiple Purchase docs (one per course in the cart). The (user,
+// course) unique-when-COMPLETED index below is what actually prevents
+// double-enrollment.
+purchaseSchema.index({ razorpayOrderId: 1 });
 purchaseSchema.index({ user: 1, course: 1, status: 1 });
 // Prevent two completed purchases of the same course by the same user, while
 // still allowing multiple CREATED/FAILED attempts to coexist. Same partial-

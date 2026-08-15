@@ -52,6 +52,10 @@ Setting up `.env` in either app will need credentials from:
 - **Razorpay** — API keys for checkout.
 - **Google** and **GitHub** OAuth apps — for social sign-in (optional; the app works without them, just without those login buttons).
 
+## Deploying
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) — backend on Oracle Cloud, frontend on Vercel.
+
 ## Notes
 
 - See `backend/.env.example` for every variable the API expects, with notes on where to get each one.

@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
+import { CartProvider } from "./context/CartContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -9,6 +10,7 @@ import GithubCallback from "./pages/GithubCallback";
 import Landing from "./pages/Landing";
 import About from "./pages/About";
 import Courses from "./pages/Courses";
+import Cart from "./pages/Cart";
 import CourseDetail from "./pages/CourseDetail";
 import ContentViewer from "./pages/ContentViewer";
 import MyCourses from "./pages/MyCourses";
@@ -31,6 +33,7 @@ const AppLayout = () => {
         <Route path="/" element={<Landing />} />
         <Route path="/about" element={<About />} />
         <Route path="/courses" element={<Courses />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<LoginPage />} />
         <Route path="/auth/github/callback" element={<GithubCallback />} />
@@ -59,7 +62,9 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <AppLayout />
+        <CartProvider>
+          <AppLayout />
+        </CartProvider>
       </AuthProvider>
     </BrowserRouter>
   );

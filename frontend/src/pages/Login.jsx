@@ -190,7 +190,6 @@ const AuthPage = () => {
             </div>
             <div className="space-y-3">
               <GoogleSignInButton onError={setError} />
-              <GithubSignInButton />
             </div>
           </div>
         )}

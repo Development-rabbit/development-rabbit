@@ -5,12 +5,17 @@ import requestIp from "request-ip";
 
 const app = express()
 
-const allowedOrigins = [
-  "http://localhost:3000",
-  "http://localhost:5173", // Vite dev server (frontend/)
-  "https://03513a754a94457087e64f8efb06c757-br-c470a8da8cbb46f7954e62e87.fly.dev",
-  "https://builder.io/app/projects/f25eac5ccded46f5baaa0ad55feac9bc" // 👈 add the real origin here
-];
+// CORS_ORIGIN is a comma-separated list of allowed frontend origins, e.g.
+// "https://your-app.vercel.app,https://yourdomain.com" — set it in the
+// server's .env for production. Local dev origins are always allowed on
+// top of whatever's configured there, so this file never needs editing
+// again just to add a deployed frontend.
+const envOrigins = (process.env.CORS_ORIGIN || "")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter((origin) => origin && origin !== "*");
+
+const allowedOrigins = [...new Set(["http://localhost:3000", "http://localhost:5173", ...envOrigins])];
 
 app.use(cors({
 

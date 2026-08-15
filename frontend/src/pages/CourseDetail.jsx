@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { getCourseDetail, toggleCourseLike, getCourseReviews, addCourseReview } from "../api/courses";
 import { initiatePurchase, verifyPurchase } from "../api/purchases";
 import { useAuth } from "../context/AuthContext";
+import { useCart } from "../context/CartContext";
 import { loadRazorpayScript } from "../utils/loadRazorpay";
 
 const formatPrice = (price, currency) => {
@@ -46,10 +47,25 @@ const HeartIcon = ({ className = "w-4 h-4", filled = false }) => (
   </svg>
 );
 
+const CartAddIcon = ({ className = "w-4 h-4" }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth={2}>
+    <circle cx="9" cy="20" r="1.4" />
+    <circle cx="18" cy="20" r="1.4" />
+    <path d="M2.5 3h2l2.3 11.4a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.6L21 7H6" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const CheckIcon = ({ className = "w-4 h-4" }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth={2}>
+    <path d="m5 12 5 5 9-10" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 const CourseDetail = () => {
   const { courseId } = useParams();
   const navigate = useNavigate();
   const { isAuthenticated, user } = useAuth();
+  const { addToCart, isInCart } = useCart();
 
   const [course, setCourse] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -359,13 +375,27 @@ const CourseDetail = () => {
                   ✓ You're enrolled
                 </div>
               ) : (
-                <button
-                  onClick={handleBuy}
-                  disabled={purchasing}
-                  className="w-full py-3 bg-gradient-to-r from-primary to-royal-purple text-white rounded-full font-body font-semibold hover:opacity-90 transition-opacity disabled:opacity-60 mb-3"
-                >
-                  {purchasing ? "Processing…" : course.price === 0 ? "Enroll for Free" : "Buy Now"}
-                </button>
+                <>
+                  <button
+                    onClick={handleBuy}
+                    disabled={purchasing}
+                    className="w-full py-3 bg-gradient-to-r from-primary to-royal-purple text-white rounded-full font-body font-semibold hover:opacity-90 transition-opacity disabled:opacity-60 mb-3"
+                  >
+                    {purchasing ? "Processing…" : course.price === 0 ? "Enroll for Free" : "Buy Now"}
+                  </button>
+                  <button
+                    onClick={() => addToCart(course)}
+                    disabled={isInCart(course._id)}
+                    className={`w-full py-2.5 rounded-full font-body font-semibold text-sm border flex items-center justify-center gap-2 transition-colors mb-3 ${
+                      isInCart(course._id)
+                        ? "bg-primary/10 text-primary border-primary/20"
+                        : "bg-white text-ink border-ink/10 hover:border-primary/40"
+                    }`}
+                  >
+                    {isInCart(course._id) ? <CheckIcon /> : <CartAddIcon />}
+                    {isInCart(course._id) ? "Added to Cart" : "Add to Cart"}
+                  </button>
+                </>
               )}
 
               <button

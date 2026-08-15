@@ -1,5 +1,6 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { useCart } from "../context/CartContext";
 import LogoHorizontal from "../assets/Logo-horizontal.png";
 
 
@@ -8,8 +9,17 @@ const navLinkClass = ({ isActive }) =>
     isActive ? "bg-lavender text-primary font-semibold" : "text-ink/70 hover:text-ink"
   }`;
 
+const CartIcon = ({ className = "w-5 h-5" }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth={2}>
+    <circle cx="9" cy="20" r="1.4" />
+    <circle cx="18" cy="20" r="1.4" />
+    <path d="M2.5 3h2l2.3 11.4a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.6L21 7H6" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 const Navbar = () => {
   const { user, isAuthenticated, isAdmin, logout } = useAuth();
+  const { count } = useCart();
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -47,6 +57,19 @@ const Navbar = () => {
         </nav>
 
         <div className="flex items-center gap-3 shrink-0">
+          <Link
+            to="/cart"
+            aria-label={`Cart, ${count} item${count === 1 ? "" : "s"}`}
+            className="relative w-10 h-10 rounded-full flex items-center justify-center text-ink/70 hover:text-ink hover:bg-mist transition-colors"
+          >
+            <CartIcon />
+            {count > 0 && (
+              <span className="absolute top-0 right-0 min-w-[18px] h-[18px] px-1 rounded-full bg-primary text-white text-[10px] font-bold flex items-center justify-center">
+                {count}
+              </span>
+            )}
+          </Link>
+
           {isAuthenticated ? (
             <>
               <span className="hidden sm:inline text-sm text-ink/70">{user?.name}</span>

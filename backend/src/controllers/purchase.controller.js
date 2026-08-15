@@ -1,4 +1,5 @@
 import crypto from "crypto";
+import mongoose from "mongoose";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
@@ -12,6 +13,18 @@ const grantEnrollment = async (userId, courseId) => {
   await User.findByIdAndUpdate(userId, {
     $addToSet: { enrolledCourses: { courseId, enrolledAt: new Date() } },
   });
+};
+
+const verifyRazorpaySignature = (orderId, paymentId, signature) => {
+  const expectedSignature = crypto
+    .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET)
+    .update(`${orderId}|${paymentId}`)
+    .digest("hex");
+
+  const expected = Buffer.from(expectedSignature);
+  const received = Buffer.from(signature);
+
+  return expected.length === received.length && crypto.timingSafeEqual(expected, received);
 };
 
 // Start a purchase. Free courses (price 0) instant-enroll without touching
@@ -97,16 +110,7 @@ export const verifyPurchase = asyncHandler(async (req, res) => {
   });
   if (!purchase) throw new ApiError(404, "No pending purchase found for this order");
 
-  const expectedSignature = crypto
-    .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET)
-    .update(`${razorpay_order_id}|${razorpay_payment_id}`)
-    .digest("hex");
-
-  const expected = Buffer.from(expectedSignature);
-  const received = Buffer.from(razorpay_signature);
-
-  const isValid =
-    expected.length === received.length && crypto.timingSafeEqual(expected, received);
+  const isValid = verifyRazorpaySignature(razorpay_order_id, razorpay_payment_id, razorpay_signature);
 
   if (!isValid) {
     purchase.status = "FAILED";
@@ -192,4 +196,153 @@ export const getCoursePurchases = asyncHandler(async (req, res) => {
       "Course purchases fetched successfully"
     )
   );
+});
+
+// Start checkout for a cart of multiple courses at once. Free courses
+// enroll instantly; paid courses (which must share one currency) are
+// bundled into a single Razorpay order so the user pays once for all of
+// them. Courses already owned, unpublished, or with an invalid id are
+// skipped rather than failing the whole request — the response reports
+// what happened to each one so the frontend can reconcile its cart.
+export const initiateCartPurchase = asyncHandler(async (req, res) => {
+  const { courseIds } = req.body;
+
+  if (!Array.isArray(courseIds) || courseIds.length === 0) {
+    throw new ApiError(400, "courseIds must be a non-empty array");
+  }
+
+  const uniqueIds = [...new Set(courseIds.map(String))];
+  const validIds = uniqueIds.filter((id) => mongoose.isValidObjectId(id));
+  const invalid = uniqueIds.filter((id) => !mongoose.isValidObjectId(id));
+
+  const courses = await Course.find({ _id: { $in: validIds }, isPublished: true });
+  const foundIds = new Set(courses.map((c) => c._id.toString()));
+  invalid.push(...validIds.filter((id) => !foundIds.has(id)));
+
+  const existingPurchases = await Purchase.find({
+    user: req.user._id,
+    course: { $in: validIds },
+    status: "COMPLETED",
+  }).select("course");
+  const ownedIds = new Set(existingPurchases.map((p) => p.course.toString()));
+
+  const freeCourses = [];
+  const paidCourses = [];
+  const alreadyOwned = [];
+
+  for (const course of courses) {
+    const id = course._id.toString();
+    if (ownedIds.has(id)) {
+      alreadyOwned.push({ courseId: id, title: course.title });
+    } else if (course.price === 0) {
+      freeCourses.push(course);
+    } else {
+      paidCourses.push(course);
+    }
+  }
+
+  for (const course of freeCourses) {
+    await Purchase.create({
+      user: req.user._id,
+      course: course._id,
+      amount: 0,
+      currency: course.currency,
+      status: "COMPLETED",
+      completedAt: new Date(),
+    });
+    await grantEnrollment(req.user._id, course._id);
+  }
+  const freeEnrolled = freeCourses.map((c) => ({ courseId: c._id.toString(), title: c.title }));
+
+  let payment = null;
+  if (paidCourses.length > 0) {
+    const currencies = new Set(paidCourses.map((c) => c.currency));
+    if (currencies.size > 1) {
+      throw new ApiError(400, "All paid courses in a single checkout must use the same currency");
+    }
+    const currency = paidCourses[0].currency;
+    const amount = paidCourses.reduce((sum, c) => sum + c.price, 0);
+
+    const order = await getRazorpay().orders.create({
+      amount,
+      currency,
+      // Razorpay caps receipt at 40 chars — see the note in initiatePurchase.
+      receipt: `cart_${req.user._id.toString().slice(-8)}_${Date.now().toString(36)}`,
+    });
+
+    await Purchase.insertMany(
+      paidCourses.map((course) => ({
+        user: req.user._id,
+        course: course._id,
+        amount: course.price,
+        currency: course.currency,
+        status: "CREATED",
+        razorpayOrderId: order.id,
+      }))
+    );
+
+    payment = {
+      orderId: order.id,
+      amount: order.amount,
+      currency: order.currency,
+      keyId: process.env.RAZORPAY_KEY_ID,
+      courseIds: paidCourses.map((c) => c._id.toString()),
+    };
+  }
+
+  res.status(201).json(
+    new ApiResponse(
+      201,
+      { freeEnrolled, alreadyOwned, invalid, payment },
+      payment ? "Order created" : "Processed"
+    )
+  );
+});
+
+// Verify a completed cart checkout and grant access to every course that
+// was bundled into that Razorpay order.
+export const verifyCartPurchase = asyncHandler(async (req, res) => {
+  const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
+
+  if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature) {
+    throw new ApiError(400, "razorpay_order_id, razorpay_payment_id and razorpay_signature are required");
+  }
+
+  const purchases = await Purchase.find({
+    user: req.user._id,
+    razorpayOrderId: razorpay_order_id,
+    status: "CREATED",
+  });
+  if (purchases.length === 0) throw new ApiError(404, "No pending purchases found for this order");
+
+  const isValid = verifyRazorpaySignature(razorpay_order_id, razorpay_payment_id, razorpay_signature);
+  const purchaseIds = purchases.map((p) => p._id);
+
+  if (!isValid) {
+    await Purchase.updateMany({ _id: { $in: purchaseIds } }, { $set: { status: "FAILED" } });
+    throw new ApiError(400, "Payment verification failed");
+  }
+
+  await Purchase.updateMany(
+    { _id: { $in: purchaseIds } },
+    {
+      $set: {
+        status: "COMPLETED",
+        razorpayPaymentId: razorpay_payment_id,
+        razorpaySignature: razorpay_signature,
+        completedAt: new Date(),
+      },
+    }
+  );
+
+  for (const purchase of purchases) {
+    await grantEnrollment(req.user._id, purchase.course);
+  }
+
+  const completed = await Purchase.find({ _id: { $in: purchaseIds } }).populate(
+    "course",
+    "title thumbnail slug"
+  );
+
+  res.json(new ApiResponse(200, { purchases: completed }, "Payment verified — access granted"));
 });

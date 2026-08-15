@@ -15,6 +15,7 @@ const resourceLinks = [
   { label: "Return Policy", slug: "return-policy" },
   { label: "Refund Policy", slug: "refund-policy" },
   { label: "Privacy Policy", slug: "privacy-policy" },
+  { label: "Terms & Conditions", slug: "terms-and-conditions" },
   { label: "Disclaimer", slug: "disclaimer" },
   { label: "FAQs", href: "/#faqs" },
   { label: "Contact Us", slug: "contact" },

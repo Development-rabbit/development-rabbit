@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { getMyPurchases } from "../api/purchases";
 import ContinueLearningSection from "../components/ContinueLearningSection";
 
@@ -23,9 +23,11 @@ const ArrowIcon = () => (
 );
 
 const MyCourses = () => {
+  const location = useLocation();
   const [purchases, setPurchases] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const checkoutMessage = location.state?.checkoutMessage;
 
   useEffect(() => {
     const load = async () => {
@@ -47,7 +49,13 @@ const MyCourses = () => {
         <span className="inline-block text-sm font-semibold text-primary bg-lavender px-4 py-1.5 rounded-full mb-5">
           Your Library
         </span>
-        <h1 className="font-heading font-bold text-3xl sm:text-4xl text-ink mb-10">My Courses</h1>
+        <h1 className="font-heading font-bold text-3xl sm:text-4xl text-ink mb-6">My Courses</h1>
+
+        {checkoutMessage && (
+          <div className="mb-6 rounded-2xl bg-green-50 border border-green-200 text-green-800 font-body text-sm px-4 py-3">
+            {checkoutMessage}
+          </div>
+        )}
 
         <ContinueLearningSection />
 

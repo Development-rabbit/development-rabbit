@@ -7,4 +7,4 @@ Disallow: /login
 Disallow: /signup
 Disallow: /auth/
 
-Sitemap: https://developmentrabbit.in/sitemap.xml
+Sitemap: https://developmentrabbit.com/sitemap.xml

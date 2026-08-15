@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 // price is stored in the smallest currency unit (paise for INR)
 const formatPrice = (price, currency) => {
@@ -15,13 +16,36 @@ const StarIcon = ({ className = "w-3.5 h-3.5" }) => (
   </svg>
 );
 
+const CartAddIcon = ({ className = "w-4 h-4" }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth={2}>
+    <circle cx="9" cy="20" r="1.4" />
+    <circle cx="18" cy="20" r="1.4" />
+    <path d="M2.5 3h2l2.3 11.4a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.6L21 7H6" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const CheckIcon = ({ className = "w-4 h-4" }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth={2}>
+    <path d="m5 12 5 5 9-10" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 const CourseCard = ({ course }) => {
+  const { addToCart, isInCart } = useCart();
+  const inCart = isInCart(course._id);
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!inCart) addToCart(course);
+  };
+
   return (
     <Link
       to={`/courses/${course.slug || course._id}`}
       className="group block rounded-2xl bg-white shadow-sm overflow-hidden hover:shadow-md transition-shadow"
     >
-      <div className="aspect-video bg-gradient-to-br from-lavender via-white to-primary/10 overflow-hidden">
+      <div className="relative aspect-video bg-gradient-to-br from-lavender via-white to-primary/10 overflow-hidden">
         {course.thumbnail ? (
           <img
             src={course.thumbnail}
@@ -33,6 +57,16 @@ const CourseCard = ({ course }) => {
             No thumbnail
           </div>
         )}
+        <button
+          type="button"
+          onClick={handleAddToCart}
+          aria-label={inCart ? "Already in cart" : "Add to cart"}
+          className={`absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center shadow-sm transition-colors ${
+            inCart ? "bg-primary text-white" : "bg-white/90 text-ink hover:bg-white"
+          }`}
+        >
+          {inCart ? <CheckIcon /> : <CartAddIcon />}
+        </button>
       </div>
       <div className="p-5">
         <p className="font-body text-xs font-semibold uppercase tracking-wide text-primary mb-1.5">

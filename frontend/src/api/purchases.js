@@ -14,3 +14,13 @@ export const getMyPurchases = async (params = {}) => {
   const { data } = await api.get("/purchases/me", { params });
   return data.data;
 };
+
+export const initiateCartPurchase = async (courseIds) => {
+  const { data } = await api.post("/purchases/cart/initiate", { courseIds });
+  return data.data;
+};
+
+export const verifyCartPurchase = async (payload) => {
+  const { data } = await api.post("/purchases/cart/verify", payload);
+  return data.data;
+};

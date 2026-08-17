@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminRoute from "./components/AdminRoute";
+import DevModeToggle from "./components/DevModeToggle";
 import LoginPage from "./pages/Login";
 import GithubCallback from "./pages/GithubCallback";
 import Landing from "./pages/Landing";
@@ -54,6 +55,7 @@ const AppLayout = () => {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       {!bareChrome && <Footer />}
+      <DevModeToggle />
     </>
   );
 };

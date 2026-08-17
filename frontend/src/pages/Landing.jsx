@@ -172,24 +172,24 @@ const ImpactSection = () => (
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-16">
         <div className="grid lg:grid-cols-[minmax(0,300px)_1fr] gap-10 lg:gap-16 items-center">
           <div>
-            <span className="block text-xs font-semibold tracking-wide text-lavender/70 mb-3">BY THE NUMBERS</span>
-            <h2 className="font-heading font-bold text-3xl sm:text-4xl leading-tight text-white">
+            <span className="block text-center md:text-left text-xs font-semibold tracking-wide text-lavender/70 mb-3">BY THE NUMBERS</span>
+            <h2 className="font-heading text-center md:text-left font-bold text-3xl sm:text-4xl leading-tight text-white">
               Results Creators Can <span className="text-white">See</span>
             </h2>
           </div>
 
-          <div className="grid sm:grid-cols-3 gap-8 sm:gap-6">
+          <div className="grid grid-cols-3 text-center md:text-left gap-4 sm:gap-6">
             {stats.map(({ icon: Icon, value, suffix, label, desc }, i) => (
               <div key={label} className={i > 0 ? "sm:border-l sm:border-white/10 sm:pl-6" : ""}>
-                <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-white mb-4">
+                <div className="mx-auto md:mx-0 w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-white mb-4">
                   <Icon className="w-7 h-7" />
                 </div>
                 <p className="font-heading font-bold text-3xl text-white mb-1">
                   {value}
                   <span className="text-[#FFD700]">{suffix}</span>
                 </p>
-                <p className="font-body font-semibold text-white mb-1">{label}</p>
-                <p className="font-body text-sm text-white/50">{desc}</p>
+                <p className="font-body text-sm md:text-2xl font-semibold text-white mb-1">{label}</p>
+                <p className="font-body hidden md:block text-sm text-white/50">{desc}</p>
               </div>
             ))}
           </div>
@@ -216,7 +216,7 @@ const ImpactSection = () => (
                 <Icon className="w-7 h-7" />
               </div>
               <h3 className="font-heading font-bold text-lg text-ink mb-2">{title}</h3>
-              <p className="font-body text-sm text-brand-muted mb-4">{desc}</p>
+              <p className="font-body  text-sm text-brand-muted mb-4">{desc}</p>
               <span className="block w-8 h-0.5 bg-primary" aria-hidden="true" />
             </div>
           ))}
@@ -670,11 +670,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-t from-lavender/70 to-white h-[calc(100vh-4rem)] md:h-[calc(100vh-5rem)]">
-      <div className="w-full h-full absolute inset-0">
-        <div className="absolute w-[40%] h-[70%] right-0 top-20 size-1/2" style={dotGridStyle} />
-      </div>
-
+    <section className="relative overflow-hidden bg-gradient-to-t from-lavender/70 to-white   px-2 md:pt-7 pb-15">
       <img
         src={Rabbit}
         alt=""
@@ -739,6 +735,13 @@ const Hero = () => {
         </div>
 
         <div className="relative">
+          {/* Dot-grid accent behind the image, bulging past its right edge */}
+          <div
+            className="block absolute -right-6 lg:-right-15 top-[3%] bottom-[3%] w-4/5"
+            style={dotGridStyle}
+            aria-hidden="true"
+          />
+
           {/* Placeholder for a real photo/render — swap in a real asset when available */}
           <div className="relative rounded-2xl border-2 border-primary bg-gradient-to-br from-lavender via-white to-primary/10 aspect-[24/23] overflow-hidden flex items-center justify-center">
             <img src={herosectionimage} alt="Hero Section" />

@@ -155,13 +155,13 @@ const Navbar = () => {
               </button>
             </div>
           ) : (
-            <div className=" items-center gap-3">
-              <Link to="/login" className=" px-4 py-2   text-sm font-semibold text-ink/80 hover:text-ink">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <Link to="/login" className="hidden sm:inline px-4 py-2 text-sm font-semibold text-ink/80 hover:text-ink">
                 Log In
               </Link>
               <Link
                 to="/signup"
-                className="text-sm font-semibold text-white bg-gradient-to-r from-primary to-royal-purple hover:opacity-90 px-4 py-2 rounded-full transition-opacity"
+                className="text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-primary to-royal-purple hover:opacity-90 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full transition-opacity whitespace-nowrap shrink-0"
               >
                 Sign Up
               </Link>

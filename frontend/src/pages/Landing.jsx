@@ -13,13 +13,18 @@ import first from "../assets/1st.png";
 import second from "../assets/2nd.png";
 import third from "../assets/3rd.png";
 
+import filler_one from "../assets/circle_filler/1.png"
+import filler_two from "../assets/circle_filler/2.png"
+import filler_three from "../assets/circle_filler/3.png"
+import filler_four from "../assets/circle_filler/4.jpeg"
+
 const dotGridStyle = {
   backgroundImage: "radial-gradient(circle, #7b3ff257 2px, transparent 1px)",
   backgroundSize: "18px 18px",
 };
 
 const primaryGlowStyle = {
-  
+
 };
 
 const royalGlowStyle = {
@@ -295,7 +300,7 @@ const SubjectsSection = () => (
           </h2>
         </div>
 
-        
+
       </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -517,9 +522,8 @@ const FaqSection = () => {
             return (
               <div
                 key={question}
-                className={`rounded-2xl border transition-colors ${
-                  open ? "bg-white border-primary/20" : "bg-white/60 border-transparent"
-                }`}
+                className={`rounded-2xl border transition-colors ${open ? "bg-white border-primary/20" : "bg-white/60 border-transparent"
+                  }`}
               >
                 <button
                   type="button"
@@ -528,9 +532,8 @@ const FaqSection = () => {
                   className="w-full flex items-center gap-4 px-6 py-5 text-left"
                 >
                   <span
-                    className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
-                      open ? "bg-primary text-white" : "bg-lavender text-primary"
-                    }`}
+                    className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${open ? "bg-primary text-white" : "bg-lavender text-primary"
+                      }`}
                   >
                     <PlusMinusIcon open={open} />
                   </span>
@@ -663,7 +666,7 @@ const Hero = () => {
       .then((data) => {
         if (!cancelled) setTotalCourses(data.pagination?.totalCourses ?? null);
       })
-      .catch(() => {});
+      .catch(() => { });
     return () => {
       cancelled = true;
     };
@@ -722,10 +725,12 @@ const Hero = () => {
 
           <div className="flex items-center gap-3">
             <div className="flex -space-x-3">
-              {["bg-primary", "bg-royal-purple", "bg-deep-purple", "bg-primary/70"].map((c, i) => (
-                <span
+              {[filler_one, filler_two, filler_three, filler_four].map((c, i) => (
+                <img
                   key={i}
-                  className={`w-9 h-9 rounded-full ${c} border-2 border-white`}
+                  src={c}
+                  alt=""
+                  className="w-9 h-9 rounded-full object-cover border-2 border-white"
                   aria-hidden="true"
                 />
               ))}
@@ -811,9 +816,9 @@ const CtaSection = () => (
           key={i}
           className={`absolute rounded-2xl bg-white shadow-md border border-black/5 flex items-center justify-center overflow-hidden ${pos}`}
         >
-          <img 
-            src={stockImages[i]} 
-            alt={`AI Video Generation Concept ${i + 1}`} 
+          <img
+            src={stockImages[i]}
+            alt={`AI Video Generation Concept ${i + 1}`}
             className="w-full h-full object-cover"
             loading="lazy"
           />
@@ -855,7 +860,7 @@ const Landing = () => {
       {/* <DemoSection /> */}
       <FaqSection />
       <CtaSection />
-        <ContinueLearningSection />
+      <ContinueLearningSection />
     </div>
   );
 };

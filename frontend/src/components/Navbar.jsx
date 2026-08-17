@@ -35,6 +35,14 @@ const CloseIcon = ({ className = "w-5 h-5" }) => (
   </svg>
 );
 
+const LogoutIcon = ({ className = "w-5 h-5" }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth={2}>
+    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M16 17l5-5-5-5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M21 12H9" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 const Navbar = () => {
   const { user, isAuthenticated, isAdmin, logout } = useAuth();
   const { count } = useCart();
@@ -87,7 +95,7 @@ const Navbar = () => {
             <HamburgerIcon />
           </button>
           <Link to="/" className="flex items-center shrink-0">
-            <img src={LogoHorizontal} alt="Development Rabbit" className="h-6 sm:h-12 w-auto" />
+            <img src={LogoHorizontal} alt="Development Rabbit" className="h-8 -translate-y-[2px] sm:h-12 w-auto" />
           </Link>
         </div>
 
@@ -113,14 +121,9 @@ const Navbar = () => {
           )}
         </nav>
 
-        {/* Quick-access Courses link, always visible on mobile without opening the menu. */}
-        <div className="flex-1 flex justify-center sm:hidden text-sm font-medium min-w-0">
-          <NavLink to="/courses" className={(navState) => `${navLinkClass(navState)} px-2.5!`}>
-            Courses
-          </NavLink>
-        </div>
+        
 
-        <div className="flex items-center shrink-0">
+        <div className="flex items-center min-w-0">
           <Link
             to="/cart"
             aria-label={`Cart, ${count} item${count === 1 ? "" : "s"}`}
@@ -134,22 +137,26 @@ const Navbar = () => {
             )}
           </Link>
 
-          {/* Auth actions don't fit the collapsed mobile bar alongside the
-              hamburger, logo, Courses shortcut, and cart — they live in the
-              full nav panel on mobile instead (see below). */}
           {isAuthenticated ? (
-            <div className="hidden sm:flex items-center gap-3">
-              <span className="text-sm text-ink/70">{user?.name}</span>
+            <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+              <span className="max-w-16 sm:max-w-none min-w-0 truncate text-sm text-ink/70">{user?.name}</span>
               <button
                 onClick={handleLogout}
-                className="text-sm font-semibold text-ink/80 hover:text-ink px-3 py-1.5 rounded-full border border-black/10 hover:bg-mist"
+                aria-label="Log out"
+                className="sm:hidden w-8 h-8 rounded-full flex items-center justify-center text-ink/70 hover:text-ink hover:bg-mist transition-colors shrink-0"
+              >
+                <LogoutIcon className="w-4.5 h-4.5" />
+              </button>
+              <button
+                onClick={handleLogout}
+                className="hidden sm:inline-block text-sm font-semibold text-ink/80 hover:text-ink px-3 py-1.5 rounded-full border border-black/10 hover:bg-mist"
               >
                 Log Out
               </button>
             </div>
           ) : (
             <div className=" items-center gap-3">
-              <Link to="/login" className="hidden sm:inline px-4 py-2   text-sm font-semibold text-ink/80 hover:text-ink">
+              <Link to="/login" className=" px-4 py-2   text-sm font-semibold text-ink/80 hover:text-ink">
                 Log In
               </Link>
               <Link
@@ -177,7 +184,7 @@ const Navbar = () => {
         aria-hidden={!menuOpen}
       >
         <div className="px-3 pt-4">
-          <div className="px-3 h-16 flex items-center gap-1">
+          <div className="px-3 h-16 flex w-full justify-between flex-row-reverse items-center gap-1">
             <button
               type="button"
               onClick={closeMenu}
@@ -187,7 +194,7 @@ const Navbar = () => {
               <CloseIcon />
             </button>
             <Link to="/" className="flex items-center shrink-0" onClick={closeMenu}>
-              <img src={LogoHorizontal} alt="Development Rabbit" className="h-6 w-auto" />
+              <img src={LogoHorizontal} alt="Development Rabbit" className="h-10 w-auto" />
             </Link>
           </div>
         </div>
@@ -216,15 +223,19 @@ const Navbar = () => {
           <div className="h-px bg-ink/10 my-3" />
 
           {isAuthenticated ? (
-            <button
-              onClick={() => {
-                closeMenu();
-                handleLogout();
-              }}
-              className="text-left px-4 py-3.5 rounded-xl text-lg font-heading font-semibold text-ink/80 hover:bg-mist hover:text-ink transition-colors"
-            >
-              Log Out
-            </button>
+            <div className="flex items-center justify-between gap-3 px-4 py-3.5 rounded-xl">
+              <span className="truncate text-lg font-heading font-semibold text-ink/80">{user?.name}</span>
+              <button
+                onClick={() => {
+                  closeMenu();
+                  handleLogout();
+                }}
+                aria-label="Log out"
+                className="w-10 h-10 rounded-full flex items-center justify-center text-ink/70 hover:text-ink hover:bg-mist transition-colors shrink-0"
+              >
+                <LogoutIcon className="w-5 h-5" />
+              </button>
+            </div>
           ) : (
             <>
               <NavLink to="/login" className={mobileNavLinkClass} onClick={closeMenu}>

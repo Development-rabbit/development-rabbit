@@ -77,7 +77,7 @@ const AuthPage = () => {
       <div className="w-full lg:w-[45%] flex flex-col justify-center px-8 sm:px-16 lg:px-20 py-12 relative">
         <div className="absolute top-6 left-8 sm:left-16 lg:left-20 right-8 sm:right-16 lg:right-20 flex items-center justify-between">
           <Link to="/">
-            <img src={LogoHorizontal} alt="Development Rabbit" className="h-7 w-auto" />
+            <img src={LogoHorizontal} alt="Development Rabbit" className="h-10 w-auto" />
           </Link>
           <Link
             to="/"
@@ -89,7 +89,7 @@ const AuthPage = () => {
         </div>
 
         {/* Toggle Tabs */}
-        <div className="flex gap-8 mb-10 border-b border-ink/10 pb-4">
+        <div className="flex gap-8 mb-10 border-b border-ink/10 pt-10 pb-4">
           <Link
             to="/login"
             className={`font-heading text-lg font-bold relative transition-colors duration-300 ${

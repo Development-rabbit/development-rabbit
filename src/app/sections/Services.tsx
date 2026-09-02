@@ -364,18 +364,7 @@ export default function Services() {
                     {service.description}
                   </p>
 
-                  <a
-                    href="https://calendly.com/8xworkk/30min"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-foreground group-hover:text-accent transition-colors"
-                  >
-                    Learn More
-                    <ArrowRight
-                      size={16}
-                      className="group-hover:translate-x-1 transition-transform"
-                    />
-                  </a>
+                  
                 </div>
               </TiltCard>
             </motion.div>

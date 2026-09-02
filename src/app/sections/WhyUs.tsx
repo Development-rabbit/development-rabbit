@@ -44,7 +44,7 @@ export default function WhyUs() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <SectionHeading
-          eyebrow="Why 8xWork"
+          eyebrow="Why Development Rabbit"
           title="Built for brands that"
           highlight="demand more"
           description="We don't just build websites and apps — we build competitive advantages through immersive technology."

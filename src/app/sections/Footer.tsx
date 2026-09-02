@@ -10,19 +10,9 @@ const footerLinks = {
 
 const socialLinks = [
   {
-    name: "LinkedIn",
-    label: "In",
-    url: "https://www.linkedin.com/company/8xwork/",
-  },
-  {
-    name: "X",
-    label: "X",
-    url: "https://x.com/8xwork",
-  },
-  {
     name: "Instagram",
     label: "Ig",
-    url: "https://www.instagram.com/8xwork/",
+    url: "https://www.instagram.com/developmentrabbit/",
   },
 ];
 
@@ -38,10 +28,10 @@ export default function Footer() {
               for AR, VR, and Web development.
             </p>
             <a
-              href="mailto:hello@8xwork.com"
+              href="mailto:support@developmentrabbit.com"
               className="text-foreground hover:text-accent transition-colors font-medium"
             >
-              connect@8xwork.com
+              support@developmentrabbit.com
             </a>
           </div>
 
@@ -81,7 +71,7 @@ export default function Footer() {
 </div></div>
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-line">
           <p className="text-sm text-muted">
-            © {new Date().getFullYear()} 8xWork. All rights reserved.
+            © {new Date().getFullYear()} Development Rabbit. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted">
             <a href="#" className="hover:text-foreground transition-colors">

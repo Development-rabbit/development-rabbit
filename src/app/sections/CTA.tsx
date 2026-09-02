@@ -38,7 +38,7 @@ export default function CTA() {
             immersive experience that gets you there.
           </p>
           <a
-            href="mailto:hello@8xwork.com"
+            href="mailto:support@developmentrabbit.com"
             className="group inline-flex items-center justify-center gap-3 rounded-full pl-7 pr-2.5 py-2.5 font-display font-semibold text-sm bg-white text-accent hover:bg-white/90 hover:-translate-y-0.5 transition-all duration-300 shadow-[0_18px_40px_-12px_rgba(10,16,80,0.5)]"
           >
             Book a Strategy Call
@@ -47,9 +47,7 @@ export default function CTA() {
             </span>
           </a>
 
-          <div className="mt-12 rounded-3xl bg-white p-2 sm:p-3 text-left overflow-hidden shadow-[0_30px_80px_-30px_rgba(10,16,80,0.6)]">
-            <CalendlyWidget />
-          </div>
+          
         </div>
       </motion.div>
     </section>

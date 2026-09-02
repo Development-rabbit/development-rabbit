@@ -36,8 +36,8 @@ export default function HeroLogoVisual() {
         {/* Main logo */}
         <div className="absolute inset-0 flex items-center justify-center p-8">
           <Image
-            src="/logo-icon.jpg"
-            alt="8xWork 3D Logo"
+            src="/logo.jpg"
+            alt="Development Rabbit 3D Logo"
             width={400}
             height={500}
             className="object-contain drop-shadow-[0_0_60px_rgba(168,85,247,0.4)]"

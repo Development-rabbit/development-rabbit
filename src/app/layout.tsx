@@ -20,16 +20,16 @@ const inter = Inter({
 });
 
 // TODO: replace with your real production domain (no trailing slash)
-const siteUrl = "https://8xwork.com";
-const siteName = "8xWork";
+const siteUrl = "https://developmentrabbit.com";
+const siteName = "Development Rabbit";
 const siteDescription =
-  "8xWork builds immersive digital experiences for high-ticket clients — AR, VR, AI, embedded systems, and web development that converts.";
+  "Development Rabbit builds immersive digital experiences for high-ticket clients — AR, VR, AI, embedded systems, and web development that converts.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "8xWork | AR/VR, AI & Custom Software Development Agency",
-    template: "%s | 8xWork",
+    default: "Development Rabbit | AR/VR, AI & Custom Software Development Agency",
+    template: "%s | Development Rabbit",
   },
   description: siteDescription,
   keywords: [
@@ -40,11 +40,11 @@ export const metadata: Metadata = {
     "custom software development",
     "web development agency",
     "software consultancy",
-    "8xWork",
+    "Development Rabbit",
   ],
-  authors: [{ name: "8xWork" }],
-  creator: "8xWork",
-  publisher: "8xWork",
+  authors: [{ name: "Development Rabbit" }],
+  creator: "Development Rabbit",
+  publisher: "Development Rabbit",
   alternates: {
     canonical: "/",
   },
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName,
-    title: "8xWork — AR/VR, AI & Custom Software Development Agency",
+    title: "Development Rabbit — AR/VR, AI & Custom Software Development Agency",
     description:
       "Premium immersive digital experiences for high-ticket clients: AR, VR, AI agents, embedded systems, and web development.",
     locale: "en_US",
@@ -72,17 +72,17 @@ export const metadata: Metadata = {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "8xWork — AR/VR & Software Development Agency",
+        alt: "Development Rabbit — AR/VR & Software Development Agency",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "8xWork — AR/VR, AI & Custom Software Development Agency",
+    title: "Development Rabbit — AR/VR, AI & Custom Software Development Agency",
     description:
       "Premium immersive digital experiences for high-ticket clients: AR, VR, AI agents, embedded systems, and web development.",
     images: ["/opengraph-image.png"],
-    // site: "@8xwork",    // TODO: add your X/Twitter handle
+    // site: "@developmentrabbit",    // TODO: add your X/Twitter handle
     // creator: "@8xwork",
   },
   icons: {

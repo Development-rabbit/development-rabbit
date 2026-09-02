@@ -44,7 +44,7 @@ export default function Hero() {
                 transition={{ delay: 0.25, duration: 0.7 }}
                 className="text-base sm:text-lg text-white/75 max-w-xl leading-relaxed mb-9"
               >
-                8xWork is a premium development agency for visionary brands and
+                Development Rabbit is a premium development agency for visionary brands and
                 high-growth companies. We design and build advanced AR, VR, and
                 Web experiences that drive real impact.
               </motion.p>
@@ -123,9 +123,17 @@ export default function Hero() {
             aria-hidden
             className="select-none pointer-events-none text-center mt-8 sm:mt-10"
           >
-            <span className="inline-block font-instrument font-bold leading-[0.8] tracking-[-0.04em] text-[clamp(4.5rem,17.5vw,15rem)] bg-gradient-to-b from-white via-white to-white/60 bg-clip-text text-transparent translate-y-[14%]">
-              8XWORK
-            </span>
+            {/* Mobile: stacks into two lines */}
+<span className="block sm:hidden font-instrument font-bold leading-[0.8] tracking-[-0.04em] text-[clamp(2.5rem,12vw,3.5rem)] bg-gradient-to-b from-white via-white to-white/60 bg-clip-text text-transparent translate-y-[14%]">
+  DEVELOPMENT
+  <br />
+  RABBIT
+</span>
+
+{/* Desktop and up: stays on one line */}
+<span className="hidden sm:inline-block whitespace-nowrap font-instrument font-bold leading-[0.8] tracking-[-0.04em] text-[clamp(2.25rem,9vw,6.5rem)] bg-gradient-to-b from-white via-white to-white/60 bg-clip-text text-transparent translate-y-[14%]">
+  DEVELOPMENT RABBIT
+</span>
           </motion.div>
         </div>
       </div>

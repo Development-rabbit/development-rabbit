@@ -18,8 +18,8 @@ export default function Logo({
     return (
       <div className={`relative flex items-center ${className}`}>
         <Image
-          src="/logo-icon.jpg"
-          alt="8xWork icon"
+          src="/logo.png"
+          alt="Development Rabbit icon"
           width={48}
           height={60}
           className="object-contain"
@@ -34,7 +34,7 @@ export default function Logo({
       <div className={`relative flex items-center ${className}`}>
         <Image
           src="/Logo.png"
-          alt="8xWork"
+          alt="Development Rabbit"
           width={160}
           height={56}
           className="object-contain"
@@ -47,16 +47,14 @@ export default function Logo({
   return (
     <div className={`relative flex items-center gap-2.5 ${className}`}>
       <Image
-        src="/logo-icon.jpg"
-        alt="8xWork icon"
-        width={30}
-        height={38}
+        src="/logo.png"
+        alt="Development Rabbit icon"
+        width={150}
+        height={60}
         className="object-contain"
         priority
       />
-      <span className="font-display text-xl font-bold tracking-tight text-foreground">
-        8x<span className="text-accent">Work</span>
-      </span>
+      
     </div>
   );
 }

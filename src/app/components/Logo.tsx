@@ -18,7 +18,7 @@ export default function Logo({
     return (
       <div className={`relative flex items-center ${className}`}>
         <Image
-          src="/logo.png"
+          src="/Logo.png"
           alt="Development Rabbit icon"
           width={48}
           height={60}
@@ -47,7 +47,7 @@ export default function Logo({
   return (
     <div className={`relative flex items-center gap-2.5 ${className}`}>
       <Image
-        src="/logo.png"
+        src="/Logo.png"
         alt="Development Rabbit icon"
         width={150}
         height={60}

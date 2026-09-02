@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/opengraph-image.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Development Rabbit — AR/VR & Software Development Agency",
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     title: "Development Rabbit — AR/VR, AI & Custom Software Development Agency",
     description:
       "Premium immersive digital experiences for high-ticket clients: AR, VR, AI agents, embedded systems, and web development.",
-    images: ["/opengraph-image.png"],
+    images: ["/og-image.png"],
     // site: "@developmentrabbit",    // TODO: add your X/Twitter handle
     // creator: "@8xwork",
   },
@@ -94,7 +94,7 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
-  manifest: "/site.webmanifest",
+  manifest: "/manifest.webmanifest",
   verification: {
     // google: "your-google-search-console-verification-code", // TODO
   },
@@ -108,7 +108,7 @@ const organizationJsonLd = {
   "@id": `${siteUrl}/#organization`,
   name: siteName,
   url: siteUrl,
-  logo: `${siteUrl}/logo.png`,
+  logo: `${siteUrl}/Logo.png`,
   description: siteDescription,
   sameAs: [
     // "https://www.linkedin.com/company/8xwork",

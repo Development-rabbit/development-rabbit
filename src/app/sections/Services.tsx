@@ -5,7 +5,6 @@ import {
   Box,
   Glasses,
   Globe,
-  ArrowRight,
   Sparkles,
   Bot,
   Cpu,

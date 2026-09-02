@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import CalendlyWidget from "../components/CalendlyWidget";
 
 export default function CTA() {
   return (

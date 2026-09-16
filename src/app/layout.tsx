@@ -40,6 +40,8 @@ export const metadata: Metadata = {
     "custom software development",
     "web development agency",
     "software consultancy",
+    "SEO and GEO optimization",
+    "GST and taxation compliance",
     "Development Rabbit",
   ],
   authors: [{ name: "Development Rabbit" }],
@@ -87,12 +89,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico?v=2", sizes: "any" },
+      { url: "/favicon-16x16.png?v=2", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png?v=2", sizes: "32x32", type: "image/png" },
     ],
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon.ico?v=2",
+    apple: "/apple-touch-icon.png?v=2",
   },
   manifest: "/manifest.webmanifest",
   verification: {
@@ -122,6 +124,8 @@ const organizationJsonLd = {
     "Embedded Systems",
     "Software Consultancy",
     "Web Development",
+    "SEO, GEO & Optimization",
+    "GST, Taxation & Compliance",
   ].map((service) => ({
     "@type": "Offer",
     itemOffered: {

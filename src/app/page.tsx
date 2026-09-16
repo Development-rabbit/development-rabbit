@@ -8,6 +8,7 @@ import Work from "./sections/Work";
 import Testimonials from "./sections/Testimonials";
 import CTA from "./sections/CTA";
 import Footer from "./sections/Footer";
+import InstagramReel from "./components/InstagramReel";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <About />
       <Work />
       <Services />
+      <InstagramReel />
       <Process />
       <Testimonials />
       <CTA />

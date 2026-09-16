@@ -44,9 +44,10 @@ export default function Hero() {
                 transition={{ delay: 0.25, duration: 0.7 }}
                 className="text-base sm:text-lg text-white/75 max-w-xl leading-relaxed mb-9"
               >
-                Development Rabbit is a premium development agency for visionary brands and
-                high-growth companies. We design and build advanced AR, VR, and
-                Web experiences that drive real impact.
+                A premium development agency for visionary brands and
+                high-growth companies. We design and build advanced AR, VR, and web
+                experiences, improve your SEO, GEO visibility, and support your GST,
+                taxation, and compliance needs.
               </motion.p>
 
               <motion.div
@@ -86,12 +87,12 @@ export default function Hero() {
                   <Sparkles size={18} className="text-white" />
                 </div>
                 <h3 className="font-display text-lg font-bold text-white">
-                  Immersive Strategy
+                  One-Stop Growth Partner
                 </h3>
               </div>
               <p className="text-sm text-white/70 leading-relaxed mb-5">
-                We create data-backed strategies and visuals that turn attention
-                into real business growth.
+                Focus on growing your business. We&apos;ll take care of the technology,
+                visibility, compliance and all needs.
               </p>
               <div className="flex items-center gap-6 pt-4 border-t border-white/15">
                 <div>

@@ -10,6 +10,8 @@ import {
   Cpu,
   Lightbulb,
   TrendingUp,
+  SearchCheck,
+  FileCheck2,
 } from "lucide-react";
 import TiltCard from "../components/TiltCard";
 
@@ -222,6 +224,55 @@ function WebMockup() {
   );
 }
 
+function OptimizationMockup() {
+  return (
+    <div className="relative h-40 mb-6 rounded-2xl bg-gradient-to-br from-cyan-600 via-teal-500 to-emerald-400 border border-line overflow-hidden shadow-inner">
+      <div className="absolute inset-0 text-white/20 bg-[radial-gradient(currentColor_1px,transparent_1px)] [background-size:18px_18px]" />
+      <div className="absolute -top-8 -right-6 w-28 h-28 rounded-full bg-emerald-200/40 blur-2xl" />
+      <div className="absolute -bottom-8 -left-8 w-28 h-28 rounded-full bg-cyan-900/30 blur-2xl" />
+
+      <div className="absolute left-6 right-6 bottom-6 flex items-end gap-2 h-16">
+        <span className="flex-1 h-6 rounded-t-md bg-white/40" />
+        <span className="flex-1 h-10 rounded-t-md bg-white/55" />
+        <span className="flex-1 h-14 rounded-t-md bg-white/75" />
+        <span className="flex-1 h-16 rounded-t-md bg-white" />
+      </div>
+
+      <div className="relative z-10 w-16 h-16 mx-auto mt-12 rounded-2xl bg-white shadow-lg border border-line flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+        <SearchCheck size={26} className="text-teal-600" />
+      </div>
+
+      <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-sm rounded-xl shadow-md border border-line px-3 py-1.5 rotate-3 transition-transform duration-500 group-hover:rotate-0">
+        <span className="text-[10px] font-semibold text-foreground">Growth Signals</span>
+      </div>
+    </div>
+  );
+}
+
+function ComplianceMockup() {
+  return (
+    <div className="relative h-40 mb-6 rounded-2xl bg-gradient-to-br from-rose-600 via-red-500 to-amber-400 border border-line overflow-hidden shadow-inner">
+      <div className="absolute inset-0 text-white/15 bg-[linear-gradient(currentColor_1px,transparent_1px),linear-gradient(90deg,currentColor_1px,transparent_1px)] [background-size:18px_18px]" />
+      <div className="absolute -top-8 left-4 w-24 h-24 rounded-full bg-amber-200/40 blur-2xl" />
+      <div className="absolute -bottom-8 -right-6 w-28 h-28 rounded-full bg-red-900/30 blur-2xl" />
+
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-20 h-24 rounded-xl bg-white shadow-lg border border-line p-3 rotate-[-5deg] transition-transform duration-500 group-hover:rotate-0">
+          <div className="h-2 w-10 rounded-full bg-red-500/50 mb-3" />
+          <div className="h-1.5 w-full rounded-full bg-line mb-2" />
+          <div className="h-1.5 w-4/5 rounded-full bg-line mb-2" />
+          <div className="h-1.5 w-full rounded-full bg-line" />
+          <FileCheck2 size={18} className="text-red-500 mt-4 ml-auto" />
+        </div>
+      </div>
+
+      <div className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-sm rounded-xl shadow-md border border-line px-3 py-1.5 -rotate-3 transition-transform duration-500 group-hover:rotate-0">
+        <span className="text-[10px] font-semibold text-foreground">Filed on Time</span>
+      </div>
+    </div>
+  );
+}
+
 const services = [
   {
     icon: Box,
@@ -270,6 +321,22 @@ const services = [
       "High-performance websites and web apps built for scale and usability.",
     Mockup: WebMockup,
     tint: "text-emerald-600",
+  },
+  {
+    icon: SearchCheck,
+    title: "SEO, GEO & Optimization",
+    description:
+      "Search, AI discovery, and conversion optimizations that help the right people find you.",
+    Mockup: OptimizationMockup,
+    tint: "text-teal-600",
+  },
+  {
+    icon: FileCheck2,
+    title: "GST, Taxation & Compliance",
+    description:
+      "Practical GST, taxation, and business compliance support to keep operations organized and on track.",
+    Mockup: ComplianceMockup,
+    tint: "text-red-600",
   },
 ];
 
@@ -333,8 +400,8 @@ export default function Services() {
               </span>
             </h2>
             <p className="mt-4 text-muted leading-relaxed max-w-xl">
-              We craft future-ready solutions across AR, VR, AI, embedded
-              systems, and the web.
+              We craft future-ready digital, growth, and compliance solutions
+              across technology and business operations.
             </p>
           </motion.div>
         </div>

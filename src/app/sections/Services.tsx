@@ -11,7 +11,6 @@ import {
   Lightbulb,
   TrendingUp,
   SearchCheck,
-  FileCheck2,
 } from "lucide-react";
 import TiltCard from "../components/TiltCard";
 
@@ -249,30 +248,6 @@ function OptimizationMockup() {
   );
 }
 
-function ComplianceMockup() {
-  return (
-    <div className="relative h-40 mb-6 rounded-2xl bg-gradient-to-br from-rose-600 via-red-500 to-amber-400 border border-line overflow-hidden shadow-inner">
-      <div className="absolute inset-0 text-white/15 bg-[linear-gradient(currentColor_1px,transparent_1px),linear-gradient(90deg,currentColor_1px,transparent_1px)] [background-size:18px_18px]" />
-      <div className="absolute -top-8 left-4 w-24 h-24 rounded-full bg-amber-200/40 blur-2xl" />
-      <div className="absolute -bottom-8 -right-6 w-28 h-28 rounded-full bg-red-900/30 blur-2xl" />
-
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-20 h-24 rounded-xl bg-white shadow-lg border border-line p-3 rotate-[-5deg] transition-transform duration-500 group-hover:rotate-0">
-          <div className="h-2 w-10 rounded-full bg-red-500/50 mb-3" />
-          <div className="h-1.5 w-full rounded-full bg-line mb-2" />
-          <div className="h-1.5 w-4/5 rounded-full bg-line mb-2" />
-          <div className="h-1.5 w-full rounded-full bg-line" />
-          <FileCheck2 size={18} className="text-red-500 mt-4 ml-auto" />
-        </div>
-      </div>
-
-      <div className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-sm rounded-xl shadow-md border border-line px-3 py-1.5 -rotate-3 transition-transform duration-500 group-hover:rotate-0">
-        <span className="text-[10px] font-semibold text-foreground">Filed on Time</span>
-      </div>
-    </div>
-  );
-}
-
 const services = [
   {
     icon: Box,
@@ -329,14 +304,6 @@ const services = [
       "Search, AI discovery, and conversion optimizations that help the right people find you.",
     Mockup: OptimizationMockup,
     tint: "text-teal-600",
-  },
-  {
-    icon: FileCheck2,
-    title: "GST, Taxation & Compliance",
-    description:
-      "Practical GST, taxation, and business compliance support to keep operations organized and on track.",
-    Mockup: ComplianceMockup,
-    tint: "text-red-600",
   },
 ];
 
@@ -400,8 +367,8 @@ export default function Services() {
               </span>
             </h2>
             <p className="mt-4 text-muted leading-relaxed max-w-xl">
-              We craft future-ready digital, growth, and compliance solutions
-              across technology and business operations.
+              We craft future-ready digital and growth solutions across
+              technology and business operations.
             </p>
           </motion.div>
         </div>

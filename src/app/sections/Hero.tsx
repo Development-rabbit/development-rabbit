@@ -46,8 +46,7 @@ export default function Hero() {
               >
                 A premium development agency for visionary brands and
                 high-growth companies. We design and build advanced AR, VR, and web
-                experiences, improve your SEO, GEO visibility, and support your GST,
-                taxation, and compliance needs.
+                experiences and improve your SEO, GEO visibility.
               </motion.p>
 
               <motion.div
@@ -92,7 +91,7 @@ export default function Hero() {
               </div>
               <p className="text-sm text-white/70 leading-relaxed mb-5">
                 Focus on growing your business. We&apos;ll take care of the technology,
-                visibility, compliance and all needs.
+                visibility and all needs.
               </p>
               <div className="flex items-center gap-6 pt-4 border-t border-white/15">
                 <div>

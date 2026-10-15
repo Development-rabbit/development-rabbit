@@ -2,10 +2,26 @@
 
 import Logo from "../components/Logo";
 
-const footerLinks = {
-  Company: ["About Us", "Careers", "Contact", "LinkedIn"],
-  Services: ["AR Development", "VR Development", "Web Development", "Consulting"],
-  Resources: ["Blog", "Case Studies", "FAQ", "Docs"],
+const footerLinks: Record<string, { label: string; href: string }[]> = {
+  Company: [
+    { label: "About Us", href: "/#about" },
+    { label: "Careers", href: "#" },
+    { label: "Contact", href: "/contact" },
+    { label: "LinkedIn", href: "#" },
+  ],
+  Services: [
+    { label: "AR Development", href: "/#services" },
+    { label: "VR Development", href: "/#services" },
+    { label: "Web Development", href: "/#services" },
+    { label: "Consulting", href: "/#services" },
+  ],
+  Legal: [
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Terms & Conditions", href: "/terms-and-conditions" },
+    { label: "Cancellation & Refunds", href: "/refund-policy" },
+    { label: "Shipping & Delivery", href: "/shipping-policy" },
+    { label: "Disclaimer", href: "/disclaimer" },
+  ],
 };
 
 const socialLinks = [
@@ -40,12 +56,12 @@ export default function Footer() {
               <h4 className="font-display font-bold mb-5">{title}</h4>
               <ul className="space-y-3">
                 {links.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <a
-                      href="#"
+                      href={link.href}
                       className="text-muted hover:text-foreground transition-colors text-sm"
                     >
-                      {link}
+                      {link.label}
                     </a>
                   </li>
                 ))}
@@ -74,10 +90,16 @@ export default function Footer() {
             © {new Date().getFullYear()} Development Rabbit. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted">
-            <a href="#" className="hover:text-foreground transition-colors">
+            <a
+              href="/privacy-policy"
+              className="hover:text-foreground transition-colors"
+            >
               Privacy Policy
             </a>
-            <a href="#" className="hover:text-foreground transition-colors">
+            <a
+              href="/terms-and-conditions"
+              className="hover:text-foreground transition-colors"
+            >
               Terms of Service
             </a>
           </div>

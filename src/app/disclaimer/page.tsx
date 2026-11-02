@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Disclaimer",
   description:
     "Important disclaimers regarding outcomes, third-party tools, and limitations of liability for Development Rabbit's website and services.",
+  alternates: { canonical: "/disclaimer/" },
 };
 
 export default function DisclaimerPage() {

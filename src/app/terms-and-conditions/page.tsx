@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Terms & Conditions",
   description:
     "The terms that govern your use of the Development Rabbit website and your engagement of our development and technology services.",
+  alternates: { canonical: "/terms-and-conditions/" },
 };
 
 export default function TermsAndConditionsPage() {

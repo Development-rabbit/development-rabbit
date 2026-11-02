@@ -7,9 +7,10 @@ import ProjectsGrid from "./ProjectsGrid";
 import { projects } from "../data/projects";
 
 export const metadata: Metadata = {
-  title: "All Projects — 8xWork",
+  title: "All Projects",
   description:
-    "Explore every project from 8xWork: VR training, immersive education, and modern web platforms.",
+    "Explore every project from Development Rabbit: VR training, immersive education, and modern web platforms.",
+  alternates: { canonical: "/projects/" },
 };
 
 export default function ProjectsPage() {
@@ -19,7 +20,7 @@ export default function ProjectsPage() {
         <div className="max-w-7xl mx-auto px-5 sm:px-6 py-4 flex items-center justify-between">
           <Link
             href="/"
-            aria-label="8xWork home"
+            aria-label="Development Rabbit home"
             className="hover:opacity-80 transition-opacity"
           >
             <Logo variant="wordmark" theme="light" className="h-9 w-auto" />

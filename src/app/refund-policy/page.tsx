@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Cancellation & Refund Policy",
   description:
     "Cancellation and refund terms for Development Rabbit's development and technology services, including advance payments, milestones, and processing timelines.",
+  alternates: { canonical: "/refund-policy/" },
 };
 
 export default function RefundPolicyPage() {

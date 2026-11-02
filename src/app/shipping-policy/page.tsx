@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Shipping & Delivery Policy",
   description:
     "How Development Rabbit delivers its development services — delivery methods, timelines, and what to do if a payment confirmation doesn't arrive.",
+  alternates: { canonical: "/shipping-policy/" },
 };
 
 export default function ShippingPolicyPage() {

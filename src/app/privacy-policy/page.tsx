@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "How Development Rabbit collects, uses, stores, and protects your personal information when you use our website or engage our development services.",
+  alternates: { canonical: "/privacy-policy/" },
 };
 
 export default function PrivacyPolicyPage() {

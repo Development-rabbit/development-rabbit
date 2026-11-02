@@ -47,9 +47,6 @@ export const metadata: Metadata = {
   authors: [{ name: "Development Rabbit" }],
   creator: "Development Rabbit",
   publisher: "Development Rabbit",
-  alternates: {
-    canonical: "/",
-  },
   robots: {
     index: true,
     follow: true,
@@ -85,7 +82,6 @@ export const metadata: Metadata = {
       "Premium immersive digital experiences for high-ticket clients: AR, VR, AI agents, embedded systems, and web development.",
     images: ["/og-image.png"],
     // site: "@developmentrabbit",    // TODO: add your X/Twitter handle
-    // creator: "@8xwork",
   },
   icons: {
     icon: [
@@ -113,9 +109,7 @@ const organizationJsonLd = {
   logo: `${siteUrl}/Logo.png`,
   description: siteDescription,
   sameAs: [
-    // "https://www.linkedin.com/company/8xwork",
-    // "https://twitter.com/8xwork",
-    // "https://www.instagram.com/8xwork",
+    "https://www.instagram.com/developmentrabbit.official/",
   ],
   makesOffer: [
     "AR Development",

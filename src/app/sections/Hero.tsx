@@ -30,6 +30,10 @@ export default function Hero() {
                 transition={{ duration: 0.9, ease: [0, 0, 0.2, 1] }}
                 className="font-instrument text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-[-0.02em] text-white mb-6"
               >
+                <span className="block font-sans text-sm sm:text-base font-medium leading-snug tracking-normal text-white/75 mb-4">
+                  Development Rabbit — AR, VR, AI &amp; Custom Software Development
+                  Agency
+                </span>
                 You Dream,
                 <br />
                 We{" "}

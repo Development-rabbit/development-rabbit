@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Contact Us",
   description:
     "Get in touch with Development Rabbit — email, phone, business address, and support hours for project inquiries, payment support, and pre-sales questions.",
+  alternates: { canonical: "/contact/" },
 };
 
 const channels = [
@@ -36,8 +37,8 @@ const channels = [
   {
     icon: AtSign,
     label: "Instagram",
-    value: "@developmentrabbit",
-    href: "https://www.instagram.com/developmentrabbit/",
+    value: "@developmentrabbit.official",
+    href: "https://www.instagram.com/developmentrabbit.official/",
   },
 ];
 

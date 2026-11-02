@@ -28,7 +28,7 @@ const socialLinks = [
   {
     name: "Instagram",
     label: "Ig",
-    url: "https://www.instagram.com/developmentrabbit/",
+    url: "https://www.instagram.com/developmentrabbit.official/",
   },
 ];
 

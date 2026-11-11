@@ -13,7 +13,7 @@ export default function TermsAndConditionsPage() {
     <LegalPage
       eyebrow="Legal"
       title="Terms & Conditions"
-      lastUpdated="15 October 2026"
+      lastUpdated="11 November 2026"
     >
       <p>
         These Terms & Conditions (&quot;Terms&quot;) govern your use of{" "}
@@ -35,6 +35,7 @@ export default function TermsAndConditionsPage() {
       <ul>
         <li>AR/VR development</li>
         <li>AI agents and applied AI solutions</li>
+        <li>Data annotation, data labelling, and AI training data services</li>
         <li>Embedded systems development</li>
         <li>Web development</li>
         <li>

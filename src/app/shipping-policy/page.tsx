@@ -13,7 +13,7 @@ export default function ShippingPolicyPage() {
     <LegalPage
       eyebrow="Legal"
       title="Shipping & Delivery Policy"
-      lastUpdated="15 October 2026"
+      lastUpdated="11 November 2026"
     >
       <p>
         This policy describes how services engaged from Development Rabbit
@@ -24,7 +24,8 @@ export default function ShippingPolicyPage() {
       <h2>1. No Physical Shipping</h2>
       <p>
         Development Rabbit provides <strong>services only</strong> — custom
-        software, AR/VR, AI, embedded systems, and web development. We do{" "}
+        software, AR/VR, AI, data annotation and labelling, embedded systems, and
+        web development. We do{" "}
         <strong>not sell or ship any physical goods</strong>, so no courier,
         shipping charges, or physical delivery timelines apply.
       </p>

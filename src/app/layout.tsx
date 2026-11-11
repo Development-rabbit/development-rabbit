@@ -23,12 +23,12 @@ const inter = Inter({
 const siteUrl = "https://developmentrabbit.com";
 const siteName = "Development Rabbit";
 const siteDescription =
-  "Development Rabbit builds immersive digital experiences for high-ticket clients — AR, VR, AI, embedded systems, and web development that converts.";
+  "Development Rabbit builds immersive digital experiences for high-ticket clients — AR, VR, AI, data annotation and labelling, embedded systems, and web development that converts.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Development Rabbit | AR/VR, AI & Custom Software Development Agency",
+    default: "Development Rabbit | AR/VR, AI, Data Annotation & Software Development",
     template: "%s | Development Rabbit",
   },
   description: siteDescription,
@@ -36,6 +36,12 @@ export const metadata: Metadata = {
     "AR development agency",
     "VR development agency",
     "AI agent development",
+    "data annotation services",
+    "data labeling services",
+    "data labelling",
+    "image and video annotation",
+    "text and audio annotation",
+    "AI training data",
     "embedded systems development",
     "custom software development",
     "web development agency",
@@ -64,7 +70,7 @@ export const metadata: Metadata = {
     siteName,
     title: "Development Rabbit — AR/VR, AI & Custom Software Development Agency",
     description:
-      "Premium immersive digital experiences for high-ticket clients: AR, VR, AI agents, embedded systems, and web development.",
+      "Premium immersive digital experiences for high-ticket clients: AR, VR, AI agents, data annotation and labelling, embedded systems, and web development.",
     locale: "en_US",
     images: [
       {
@@ -79,7 +85,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Development Rabbit — AR/VR, AI & Custom Software Development Agency",
     description:
-      "Premium immersive digital experiences for high-ticket clients: AR, VR, AI agents, embedded systems, and web development.",
+      "Premium immersive digital experiences for high-ticket clients: AR, VR, AI agents, data annotation and labelling, embedded systems, and web development.",
     images: ["/og-image.png"],
     // site: "@developmentrabbit",    // TODO: add your X/Twitter handle
   },
@@ -115,6 +121,7 @@ const organizationJsonLd = {
     "AR Development",
     "VR Development",
     "AI Agent Development",
+    "Data Annotation & Labelling",
     "Embedded Systems",
     "Software Consultancy",
     "Web Development",

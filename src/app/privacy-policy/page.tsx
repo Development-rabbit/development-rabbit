@@ -13,7 +13,7 @@ export default function PrivacyPolicyPage() {
     <LegalPage
       eyebrow="Legal"
       title="Privacy Policy"
-      lastUpdated="15 October 2026"
+      lastUpdated="11 November 2026"
     >
       <p>
         Development Rabbit (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;)
@@ -22,8 +22,8 @@ export default function PrivacyPolicyPage() {
           https://developmentrabbit.com
         </a>{" "}
         (the &quot;Website&quot;). We provide software development and
-        technology services, including AR/VR, AI, embedded systems, and web
-        development. This Privacy Policy explains how we collect, use,
+        technology services, including AR/VR, AI, data annotation and labelling,
+        embedded systems, and web development. This Privacy Policy explains how we collect, use,
         disclose, and protect your personal information when you visit our
         Website or engage our services.
       </p>

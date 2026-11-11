@@ -11,6 +11,7 @@ import {
   Lightbulb,
   TrendingUp,
   SearchCheck,
+  Tags,
 } from "lucide-react";
 import TiltCard from "../components/TiltCard";
 
@@ -110,6 +111,38 @@ function AiAgentMockup() {
         </span>
         <span className="text-[10px] font-semibold text-foreground">
           Agent Active
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function DataAnnotationMockup() {
+  return (
+    <div className="relative h-40 mb-6 rounded-2xl bg-gradient-to-br from-rose-600 via-pink-500 to-orange-300 border border-line overflow-hidden shadow-inner">
+      {/* pixel-grid texture */}
+      <div className="absolute inset-0 text-white/15 bg-[linear-gradient(currentColor_1px,transparent_1px),linear-gradient(90deg,currentColor_1px,transparent_1px)] [background-size:16px_16px]" />
+
+      {/* mesh glow blobs */}
+      <div className="absolute -top-8 -left-6 w-24 h-24 rounded-full bg-pink-200/40 blur-2xl" />
+      <div className="absolute -bottom-8 -right-6 w-28 h-28 rounded-full bg-rose-900/30 blur-2xl" />
+
+      {/* bounding boxes being labelled */}
+      <div className="absolute top-6 left-6 w-20 h-16 rounded-md border-2 border-white/90 transition-transform duration-500 group-hover:-translate-y-1">
+        <span className="absolute -top-2.5 left-1 bg-white rounded px-1.5 text-[9px] font-semibold text-rose-600">
+          car 0.98
+        </span>
+      </div>
+      <div className="absolute top-12 right-8 w-14 h-20 rounded-md border-2 border-dashed border-white/80 transition-transform duration-500 group-hover:translate-y-1">
+        <span className="absolute -top-2.5 left-1 bg-white rounded px-1.5 text-[9px] font-semibold text-rose-600">
+          person
+        </span>
+      </div>
+
+      <div className="absolute -bottom-2 -left-2 bg-white/95 backdrop-blur-sm rounded-xl shadow-md border border-line px-3 py-1.5 flex items-center gap-1.5 rotate-3 transition-transform duration-500 group-hover:rotate-0">
+        <Tags size={12} className="text-rose-600" />
+        <span className="text-[10px] font-semibold text-foreground">
+          QA Verified
         </span>
       </div>
     </div>
@@ -272,6 +305,14 @@ const services = [
       "Intelligent agents that automate workflows and act on your behalf.",
     Mockup: AiAgentMockup,
     tint: "text-orange-600",
+  },
+  {
+    icon: Tags,
+    title: "Data Annotation & Labelling",
+    description:
+      "Accurately labelled image, video, text, and audio data — with quality checks — to train reliable AI and machine learning models.",
+    Mockup: DataAnnotationMockup,
+    tint: "text-rose-600",
   },
   {
     icon: Cpu,

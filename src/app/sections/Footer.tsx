@@ -13,6 +13,7 @@ const footerLinks: Record<string, { label: string; href: string }[]> = {
     { label: "AR Development", href: "/#services" },
     { label: "VR Development", href: "/#services" },
     { label: "Web Development", href: "/#services" },
+    { label: "Data Annotation", href: "/#services" },
     { label: "Consulting", href: "/#services" },
   ],
   Legal: [
@@ -41,7 +42,7 @@ export default function Footer() {
             <Logo variant="wordmark" className="h-10 w-auto mb-6" />
             <p className="text-muted max-w-sm leading-relaxed mb-6">
               We turn time into immersive digital experiences. A premium agency
-              for AR, VR, and Web development.
+              for AR, VR, Web development, and data annotation.
             </p>
             <a
               href="mailto:support@developmentrabbit.com"
